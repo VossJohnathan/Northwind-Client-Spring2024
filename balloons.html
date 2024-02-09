@@ -31,12 +31,36 @@
         .ball {
             visibility: hidden;
         }
+        
+        /* Assignment 3 changes */
+        #noSelected {
+            visibility: hidden;
+            min-width: 250px;
+            margin-left: -125px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            bottom: 30px;
+            font-size: 17px;
+        }
+
+        #noSelected.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+        /* End Assignment 3 Changes */
     </style>
 </head>
 <body>
      <!-- content -->
      <div class="container">
-        <h1 class="animate__animated animate__heartBeat">Happy Birthday!</h1><hr />
+        <h1 id="happyBirthday">Happy Birthday!</h1><hr />
         <form role="form">
             <div class="row">
                 <div class="col-sm">
@@ -53,19 +77,27 @@
                             <h5 class="card-title">Select your favorite balloons</h5>
                             <div class="form-group form-check">
                                 <input type="checkbox" class="form-check-input" id="red">
-                                <label class="form-check-label" for="red">Red balloons</label>
+                                <label class="form-check-label" for="red" data-color="#ff0000">Red balloons</label>
                             </div>
                             <div class="form-group form-check">
                                 <input type="checkbox" class="form-check-input" id="green">
-                                <label class="form-check-label" for="green">Green balloons</label>
+                                <label class="form-check-label" for="green" data-color="#00ff00">Green balloons</label>
                             </div>
                             <div class="form-group form-check">
                                 <input type="checkbox" class="form-check-input" id="blue">
-                                <label class="form-check-label" for="blue">Blue balloons</label>
+                                <label class="form-check-label" for="blue" data-color="#0000ff">Blue balloons</label>
                             </div>
                         </div>
                     </div>
                     <button type="button" class="btn btn-outline-primary mt-3" id="submit">Submit</button>
+                    <!--Assignment 03 Changes-->
+                    <!--Adding Buttons for check all, and uncheck all-->
+                    <button type="button" class="btn btn-outline-primary mt-3" id="checkAll">Check All</button>
+                    <button type="button" class="btn btn-outline-primary mt-3" id="uncheckAll">Uncheck All</button>
+
+
+                    <div id="noSelected">Please Select One Color!</div>
+                    <!--End Assignment 03 Changes-->
                 </div>
                 <div class="col-sm">
                     <img src="media/red.png" class="ball" alt="red balloon" id="redImg" />
